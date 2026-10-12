@@ -1,0 +1,27 @@
+# Variables de entorno
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Airflow y logs
+logs/
+airflow.db
+airflow-webserver.pid
+
+# Bases de datos y archivos locales
+*.db
+*.sqlite
+*.sqlite3
+
+# Entorno y archivos temporales
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

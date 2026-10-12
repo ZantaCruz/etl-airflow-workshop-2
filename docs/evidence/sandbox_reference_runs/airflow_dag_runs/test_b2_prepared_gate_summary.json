@@ -1,0 +1,19 @@
+{
+  "test": "B2 - prepared gate blocks load_dw (join fan-out injected after transformation)",
+  "dag_run_state": "failed",
+  "tasks": {
+    "extract_spotify": "success",
+    "extract_grammys": "success",
+    "validate_spotify_raw": "success",
+    "validate_grammys_raw": "success",
+    "transform_and_integrate": "success",
+    "validate_prepared": "failed",
+    "load_dw": "upstream_failed"
+  },
+  "failed_critical": [
+    "DQ10"
+  ],
+  "dq10_unexpected_rows": 380,
+  "dw_unchanged": true,
+  "regression_default_run": "success"
+}

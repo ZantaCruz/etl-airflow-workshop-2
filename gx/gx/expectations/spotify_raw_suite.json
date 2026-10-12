@@ -1,0 +1,178 @@
+{
+  "expectations": [
+    {
+      "id": "36263a06-8249-45ab-9dc8-ad6bc4ba10b9",
+      "kwargs": {
+        "column": "duration_ms",
+        "min_value": 0.0,
+        "mostly": 0.999,
+        "strict_min": true
+      },
+      "meta": {
+        "rule_id": "DQ1",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "6b325191-cdc5-41f0-92cf-d46ff5134986",
+      "kwargs": {
+        "column": "popularity",
+        "max_value": 100.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ2",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "f93e2de2-f546-4d49-b208-36d6a76f2939",
+      "kwargs": {
+        "column": "track_name",
+        "mostly": 0.999
+      },
+      "meta": {
+        "rule_id": "DQ3",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "77182865-1809-430f-94f4-46f232fdc187",
+      "kwargs": {
+        "column": "artists",
+        "mostly": 0.999
+      },
+      "meta": {
+        "rule_id": "DQ3",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "2d105bcb-8d78-40e0-9d69-59eb1fd094a1",
+      "kwargs": {
+        "column_list": [
+          "track_id",
+          "track_genre"
+        ]
+      },
+      "meta": {
+        "rule_id": "DQ5",
+        "severity": "Warning"
+      },
+      "severity": "critical",
+      "type": "expect_compound_columns_to_be_unique"
+    },
+    {
+      "id": "66aaa9af-0793-4bf1-ac61-0b8e2769b450",
+      "kwargs": {
+        "column": "danceability",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "c2d55985-7bf0-45af-9499-e81f04873250",
+      "kwargs": {
+        "column": "energy",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "533c8a90-a872-4d9e-a9f7-1ccf1db5852e",
+      "kwargs": {
+        "column": "valence",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "0fd93633-6da3-4f20-919c-6ad08aed3d6d",
+      "kwargs": {
+        "column": "acousticness",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "7c21538a-3807-445c-802e-02b837c472c2",
+      "kwargs": {
+        "column": "instrumentalness",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "2d6279b6-a095-474c-808f-8cce8dde9156",
+      "kwargs": {
+        "column": "liveness",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "7f74a56c-6164-4b54-9463-71bd187933ba",
+      "kwargs": {
+        "column": "speechiness",
+        "max_value": 1.0,
+        "min_value": 0.0
+      },
+      "meta": {
+        "rule_id": "DQ4",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    }
+  ],
+  "id": "00b49924-5794-416f-8613-6669f11cc0ba",
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "name": "spotify_raw_suite",
+  "notes": null
+}

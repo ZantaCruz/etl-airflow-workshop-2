@@ -1,0 +1,25 @@
+{
+  "batch_id": "manual__2026-10-10T04_10_53.946936_00_00",
+  "executed_at": "2026-10-10T04:14:24.774904Z",
+  "spotify": {
+    "rows_in": 114000,
+    "rows_quarantined": 1,
+    "duplicates_removed": 450,
+    "rows_prepared": 113549,
+    "distinct_tracks": 89740,
+    "tracks_nominated": 231
+  },
+  "grammy": {
+    "rows_in": 4810,
+    "categories_raw": 638,
+    "categories_normalized": 629,
+    "rows_prepared": 4810,
+    "matched_exact": 181,
+    "matched_normalized": 82,
+    "unmatched": 4547,
+    "match_rate": 0.0547,
+    "ambiguous_matches": 79,
+    "confirmed_winners": 4315,
+    "null_key_rows_unmatched": 1840
+  }
+}

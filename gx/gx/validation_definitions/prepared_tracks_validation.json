@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "9b1b04f8-4511-4f94-8b25-4a70c3420529",
+      "name": "prepared_tracks_asset"
+    },
+    "batch_definition": {
+      "id": "a7c81ab3-29ea-43af-977a-6b5a42fc7dcd",
+      "name": "prepared_tracks_batch"
+    },
+    "datasource": {
+      "id": "0cd22533-1685-42ea-8feb-ecf9605a638d",
+      "name": "pandas_ds"
+    }
+  },
+  "id": "00be4124-d0d7-4965-a856-d9643f604bf0",
+  "name": "prepared_tracks_validation",
+  "suite": {
+    "id": "5b2d8d68-26c2-40d9-96ab-24a30808f9ce",
+    "name": "prepared_tracks_suite"
+  }
+}

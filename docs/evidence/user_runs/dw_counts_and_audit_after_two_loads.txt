@@ -1,0 +1,19 @@
+Evidence E-U1 / E-U3 - output pasted by the user from the Docker environment (PowerShell, 2026-10-12)
+
+> docker compose exec music_postgres psql -U music_user -d music_dw -c "SELECT 'fact_track' t, COUNT(*) FROM fact_track UNION ALL SELECT 'fact_nomination', COUNT(*) FROM fact_nomination;"
+        t        | count
+-----------------+--------
+ fact_track      | 113549
+ fact_nomination |   4810
+(2 rows)
+
+> docker compose exec music_postgres psql -U music_user -d music_dw -c "SELECT load_id, batch_id, status, loaded_at FROM etl_load_audit ORDER BY load_id;"
+ load_id |                 batch_id                 | status  |         loaded_at
+---------+------------------------------------------+---------+----------------------------
+       1 | manual__2026-10-12T18_03_51.482691_00_00 | SUCCESS | 2026-10-12 18:04:47.155273
+       2 | manual__2026-10-12T18_07_19.887313_00_00 | SUCCESS | 2026-10-12 18:08:04.054619
+(2 rows)
+
+Reading: two successful loads (Test A at 18:04:47, rerun at 18:08:04) left the fact tables at one snapshot
+(113,549 and 4,810 rows), not at the doubled 227,098 and 9,620 an append would give. The Test B run
+(18:05:46) produced no audit row: its load never started.

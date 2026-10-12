@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "9fa320e3-93a8-4302-a895-d07859cfbad7",
+      "name": "spotify_raw_asset"
+    },
+    "batch_definition": {
+      "id": "0543ece5-cb97-46bb-9271-9bf79bd815fe",
+      "name": "spotify_raw_batch"
+    },
+    "datasource": {
+      "id": "0cd22533-1685-42ea-8feb-ecf9605a638d",
+      "name": "pandas_ds"
+    }
+  },
+  "id": "ce7a0f47-cb4c-4f19-8247-5fdd6bdbe1f0",
+  "name": "spotify_raw_validation",
+  "suite": {
+    "id": "00b49924-5794-416f-8613-6669f11cc0ba",
+    "name": "spotify_raw_suite"
+  }
+}

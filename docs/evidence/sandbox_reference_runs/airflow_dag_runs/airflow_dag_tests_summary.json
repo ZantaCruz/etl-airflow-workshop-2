@@ -1,0 +1,136 @@
+{
+  "engine": "apache-airflow 3.1.8, DAG.test() in-process; PostgreSQL (embedded) for source DB and DW",
+  "note": "Sandbox reference runs. Your own Test A / Test B / rerun evidence must come from your Docker Airflow UI.",
+  "test_a_successful_run": {
+    "dag_run_state": "success",
+    "tasks": {
+      "extract_spotify": "success",
+      "extract_grammys": "success",
+      "validate_spotify_raw": "success",
+      "validate_grammys_raw": "success",
+      "transform_and_integrate": "success",
+      "validate_prepared": "success",
+      "load_dw": "success"
+    }
+  },
+  "test_b_controlled_critical_failure": {
+    "dag_run_state": "failed",
+    "tasks": {
+      "extract_spotify": "success",
+      "extract_grammys": "success",
+      "validate_spotify_raw": "failed",
+      "validate_grammys_raw": "success",
+      "transform_and_integrate": "upstream_failed",
+      "validate_prepared": "upstream_failed",
+      "load_dw": "upstream_failed"
+    }
+  },
+  "safe_rerun_same_batch": {
+    "state": "success",
+    "dw_after": {
+      "counts": {
+        "dim_track": 89740,
+        "dim_genre": 114,
+        "dim_category": 629,
+        "dim_year": 62,
+        "fact_track": 113549,
+        "fact_nomination": 4810
+      },
+      "sum_popularity": 3783956,
+      "audit": {
+        "SUCCESS": 5,
+        "FAILED": 1
+      }
+    },
+    "dw_identical_to_before": true
+  },
+  "partial_load_failure": {
+    "state": "failed",
+    "tasks": {
+      "extract_spotify": "success",
+      "extract_grammys": "success",
+      "validate_spotify_raw": "success",
+      "validate_grammys_raw": "success",
+      "transform_and_integrate": "success",
+      "validate_prepared": "success",
+      "load_dw": "failed"
+    },
+    "dw_after": {
+      "counts": {
+        "dim_track": 89740,
+        "dim_genre": 114,
+        "dim_category": 629,
+        "dim_year": 62,
+        "fact_track": 113549,
+        "fact_nomination": 4810
+      },
+      "sum_popularity": 3783956,
+      "audit": {
+        "SUCCESS": 5,
+        "FAILED": 2
+      }
+    },
+    "dw_left_intact": true
+  },
+  "recovery_after_failed_load": {
+    "state": "success",
+    "dw_after": {
+      "counts": {
+        "dim_track": 89740,
+        "dim_genre": 114,
+        "dim_category": 629,
+        "dim_year": 62,
+        "fact_track": 113549,
+        "fact_nomination": 4810
+      },
+      "sum_popularity": 3783956,
+      "audit": {
+        "SUCCESS": 6,
+        "FAILED": 3
+      }
+    }
+  },
+  "selective_retry_transient_db_outage": {
+    "state": "success",
+    "extract_grammys_connection_attempts": 2,
+    "seconds": 64.7,
+    "tasks": {
+      "extract_spotify": {
+        "state": "success",
+        "try_number": 1,
+        "max_tries": 1
+      },
+      "extract_grammys": {
+        "state": "success",
+        "try_number": 2,
+        "max_tries": 3
+      },
+      "validate_spotify_raw": {
+        "state": "success",
+        "try_number": 1,
+        "max_tries": 0
+      },
+      "validate_grammys_raw": {
+        "state": "success",
+        "try_number": 1,
+        "max_tries": 0
+      },
+      "transform_and_integrate": {
+        "state": "success",
+        "try_number": 1,
+        "max_tries": 0
+      },
+      "validate_prepared": {
+        "state": "success",
+        "try_number": 1,
+        "max_tries": 0
+      },
+      "load_dw": {
+        "state": "success",
+        "try_number": 1,
+        "max_tries": 2
+      }
+    }
+  },
+  "harness_note": "An earlier recovery attempt in the same Python process reused the injected parameter (dag.test() keeps params in memory); it was repeated in a clean process. Real DagRuns each start from the parameter defaults."
+}

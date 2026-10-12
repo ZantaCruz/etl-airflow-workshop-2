@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "e81bb928-9512-45b2-a826-e134e6a0897c",
+      "name": "prepared_nominations_asset"
+    },
+    "batch_definition": {
+      "id": "b2c9e764-e87e-4f9d-a44a-24571f111a6c",
+      "name": "prepared_nominations_batch"
+    },
+    "datasource": {
+      "id": "0cd22533-1685-42ea-8feb-ecf9605a638d",
+      "name": "pandas_ds"
+    }
+  },
+  "id": "4ec45f21-e63d-4525-b398-7b8470dade6f",
+  "name": "prepared_nominations_validation",
+  "suite": {
+    "id": "57b63a32-f1d3-431f-9f1e-80e16fb95905",
+    "name": "prepared_nominations_suite"
+  }
+}

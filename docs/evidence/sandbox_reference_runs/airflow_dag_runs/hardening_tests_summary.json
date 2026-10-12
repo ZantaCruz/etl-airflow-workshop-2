@@ -1,0 +1,26 @@
+{
+  "engine": "apache-airflow 3.1.8 DAG.test(), PostgreSQL real",
+  "s1_grammy_source_table_missing": {
+    "dag_run": "failed",
+    "extract_grammys": "failed at try 1 of 4 (no retries: deterministic)",
+    "downstream": "upstream_failed",
+    "message": "Grammy source table not found. Run the source preparation first"
+  },
+  "s2_music_dw_database_missing": {
+    "dag_run": "success",
+    "log": "Database music_dw does not exist; creating it",
+    "rows": {
+      "dim_track": 89740,
+      "dim_genre": 114,
+      "dim_category": 629,
+      "dim_year": 62,
+      "fact_track": 113549,
+      "fact_nomination": 4810
+    }
+  },
+  "s3_rerun_same_input": {
+    "dag_run": "success",
+    "rows_unchanged": true,
+    "etl_load_audit_success_rows": 2
+  }
+}

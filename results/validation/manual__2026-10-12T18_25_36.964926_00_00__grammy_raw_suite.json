@@ -1,0 +1,46 @@
+{
+  "suite": "grammy_raw_suite",
+  "batch_id": "manual__2026-10-12T18_25_36.964926_00_00",
+  "executed_at": "2026-10-12T18:25:52.893450Z",
+  "all_passed": true,
+  "critical_passed": true,
+  "failed_critical": [],
+  "failed_warning": [],
+  "failed_informational": [],
+  "rules": [
+    {
+      "rule_id": "DQ7",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ7",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "year",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 4810
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ8",
+      "severity": "Warning",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ8",
+          "severity": "Warning",
+          "expectation_type": "expect_column_values_to_be_in_set",
+          "target": "winner_flag_reliable",
+          "success": true,
+          "unexpected_count": 495,
+          "unexpected_percent": 10.291060291060292,
+          "element_count": 4810
+        }
+      ]
+    }
+  ]
+}

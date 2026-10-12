@@ -1,0 +1,6 @@
+pandas>=2.0
+SQLAlchemy>=2.0,<2.1
+psycopg2-binary>=2.9
+great-expectations>=1.0
+python-dotenv>=1.0
+pyarrow>=14.0

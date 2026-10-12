@@ -1,0 +1,17 @@
+Evidence E-U0 - first run in the user's Docker Airflow (task: load_dw)
+Source: task log pasted by the user. Condensed to the lines that answer "where / why / what next".
+
+[2026-10-09 17:49:20] ERROR - Task failed with exception
+OperationalError: (psycopg2.OperationalError) connection to server at "music_postgres" (172.27.0.5), port 5432 failed:
+FATAL:  database "music_dw" does not exist
+  File "/opt/airflow/dags/reliable_music_pipeline.py", line 230, in load_dw_task
+  File "/opt/airflow/src/load.py", line 150, in load_dw
+  File "/opt/airflow/src/load.py", line 115, in create_schema
+
+What it shows:
+  Where did it fail?  Task load_dw, in create_schema. The other six tasks of the run were `success`.
+  Why?                The database music_dw did not exist. The PostgreSQL init script only runs when the data
+                      volume is empty, and this volume had been created before.
+  What happened next? The failure was visible and diagnosable, and no partial data was written (the connection never
+                      opened a transaction). Fix: load.py now creates the DW database when it is missing
+                      (ensure_dw_database); the DAG also stops retrying permanent database errors.

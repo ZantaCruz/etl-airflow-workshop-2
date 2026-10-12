@@ -1,0 +1,98 @@
+{
+  "expectations": [
+    {
+      "id": "8c124a66-114d-417c-8e75-0e2f742939d0",
+      "kwargs": {
+        "column_list": [
+          "track_id",
+          "track_genre"
+        ]
+      },
+      "meta": {
+        "rule_id": "DQ11",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_compound_columns_to_be_unique"
+    },
+    {
+      "id": "1c210e6a-988c-447e-959d-715eddf743cf",
+      "kwargs": {
+        "column_set": [
+          "track_id",
+          "track_name",
+          "artists",
+          "album_name",
+          "explicit",
+          "track_genre",
+          "popularity",
+          "duration_ms",
+          "danceability",
+          "energy",
+          "valence",
+          "tempo",
+          "acousticness",
+          "instrumentalness",
+          "liveness",
+          "speechiness",
+          "loudness",
+          "key",
+          "mode",
+          "time_signature",
+          "is_grammy_nominated"
+        ],
+        "exact_match": false
+      },
+      "meta": {
+        "rule_id": "DQ13",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_table_columns_to_match_set"
+    },
+    {
+      "id": "57d0cdde-a9d9-4bc7-8105-797f8cfed111",
+      "kwargs": {
+        "column": "duration_ms",
+        "min_value": 0.0,
+        "strict_min": true
+      },
+      "meta": {
+        "rule_id": "DQ14",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "0a9ec49e-6656-4d2a-bfd1-b4d70abaa5ab",
+      "kwargs": {
+        "column": "track_name"
+      },
+      "meta": {
+        "rule_id": "DQ14",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "16fbcb01-3dcb-44ac-b872-eb2e896e41be",
+      "kwargs": {
+        "column": "artists"
+      },
+      "meta": {
+        "rule_id": "DQ14",
+        "severity": "Critical"
+      },
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    }
+  ],
+  "id": "5b2d8d68-26c2-40d9-96ab-24a30808f9ce",
+  "meta": {
+    "great_expectations_version": "1.23.1"
+  },
+  "name": "prepared_tracks_suite",
+  "notes": null
+}

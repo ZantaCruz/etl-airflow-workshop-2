@@ -1,0 +1,76 @@
+{
+  "run1": {
+    "counts": {
+      "dim_track": 89740,
+      "dim_genre": 114,
+      "dim_category": 629,
+      "dim_year": 62,
+      "fact_track": 113549,
+      "fact_nomination": 4810
+    },
+    "sum_popularity": 3783956,
+    "matched": 263,
+    "confirmed_winners": 4315,
+    "audit": {
+      "SUCCESS": 1
+    }
+  },
+  "rerun": {
+    "counts": {
+      "dim_track": 89740,
+      "dim_genre": 114,
+      "dim_category": 629,
+      "dim_year": 62,
+      "fact_track": 113549,
+      "fact_nomination": 4810
+    },
+    "sum_popularity": 3783956,
+    "matched": 263,
+    "confirmed_winners": 4315,
+    "audit": {
+      "SUCCESS": 2
+    }
+  },
+  "after_failed_run": {
+    "counts": {
+      "dim_track": 89740,
+      "dim_genre": 114,
+      "dim_category": 629,
+      "dim_year": 62,
+      "fact_track": 113549,
+      "fact_nomination": 4810
+    },
+    "sum_popularity": 3783956,
+    "matched": 263,
+    "confirmed_winners": 4315,
+    "audit": {
+      "FAILED": 1,
+      "SUCCESS": 2
+    }
+  },
+  "recovery": {
+    "counts": {
+      "dim_track": 89740,
+      "dim_genre": 114,
+      "dim_category": 629,
+      "dim_year": 62,
+      "fact_track": 113549,
+      "fact_nomination": 4810
+    },
+    "sum_popularity": 3783956,
+    "matched": 263,
+    "confirmed_winners": 4315,
+    "audit": {
+      "FAILED": 1,
+      "SUCCESS": 3
+    }
+  },
+  "rerun_identical": true,
+  "failed_run_left_dw_intact": true,
+  "constraint_defense": {
+    "duplicate business key in dim_track": "REJECTED: UniqueViolation",
+    "duplicate (track_key, genre_key) in fact_track": "REJECTED: UniqueViolation",
+    "duplicate nomination_id in fact_nomination": "REJECTED: UniqueViolation",
+    "nomination with track_key but match_type none": "REJECTED: CheckViolation"
+  }
+}

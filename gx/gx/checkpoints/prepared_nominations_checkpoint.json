@@ -1,0 +1,12 @@
+{
+  "actions": [],
+  "id": "f4c8c33c-96bc-4bac-9827-152221c1838b",
+  "name": "prepared_nominations_checkpoint",
+  "result_format": "SUMMARY",
+  "validation_definitions": [
+    {
+      "id": "4ec45f21-e63d-4525-b398-7b8470dade6f",
+      "name": "prepared_nominations_validation"
+    }
+  ]
+}

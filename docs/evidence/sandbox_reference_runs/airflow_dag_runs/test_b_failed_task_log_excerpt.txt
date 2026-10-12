@@ -1,0 +1,4 @@
+[warning  ] [batch=manual__2026-10-09T05_13_53.805795_00_00] FAULT INJECTION ACTIVE (test hook): duration_ms set to 0 on 5700 rows (5%) [extract] loc=extract.py:61
+[error    ] [batch=manual__2026-10-09T05_13_53.805795_00_00] validate_spotify_raw BLOCKED by Critical rule(s) ['DQ1']. Downstream tasks will not run. Evidence: /home/claude/work/workshop2/results/validation/manual__2026-10-09T05_13_53.805795_00_00__spotify_raw_suite.json [unusual_prefix_9660651fa6626f686e63ace1abc9fa94a8fa4dd4_reliable_music_pipeline] loc=reliable_music_pipeline.py:101
+    raise AirflowFailException(msg)
+airflow.exceptions.AirflowFailException: [batch=manual__2026-10-09T05_13_53.805795_00_00] validate_spotify_raw BLOCKED by Critical rule(s) ['DQ1']. Downstream tasks will not run. Evidence: /home/claude/work/workshop2/results/validation/manual__2026-10-09T05_13_53.805795_00_00__spotify_raw_suite.json
