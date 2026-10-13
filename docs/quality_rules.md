@@ -6,22 +6,24 @@ decisions justified below, not values chosen so the current batch passes.
 
 ## Quality rules
 
-| Rule ID | Dataset / Layer | Attribute(s) | Quality Dimension | Quality Rule | Metric / Threshold | Severity | Related Requirement |
-|---|---|---|---|---|---|---|---|
-| DQ1 | Spotify / raw | `duration_ms` | Validity | Duration must be greater than 0 | Violation rate <= 0.1% (`mostly=0.999`) | Critical | R1, R2, R3 |
-| DQ2 | Spotify / raw | `popularity` | Validity | Must be within [0, 100] | 0 violations | Critical | R2 |
-| DQ3 | Spotify / raw | `track_name`, `artists` | Completeness | Match keys must not be null | Null rate <= 0.1% (`mostly=0.999`) | Critical | R1, R2, R3 |
-| DQ4 | Spotify / raw | 7 audio features (`danceability`, `energy`, `valence`, `acousticness`, `instrumentalness`, `liveness`, `speechiness`) | Validity | Must be within [0, 1] | 0 violations | Critical | R1 |
-| DQ5 | Spotify / raw | `track_id` + `track_genre` | Uniqueness | The pair must be unique. The same track under different genres is expected | 0 duplicate pairs (observed: 894 rows flagged = 450 duplicates) | Warning | R1, R3 |
-| DQ6 | Prepared / nominations | `category_normalized` | Consistency | Not null, and one canonical label per category after normalization | 0 violations | Critical | R3 |
-| DQ7 | Grammy / raw | `year` | Validity | Award year within [1958, 2026] | 0 violations | Critical | R1, R2, R3 |
-| DQ8 | Grammy / raw | `winner` (via `winner_flag_reliable`) | Consistency | At most one winner per (year, category); the flag is only trustworthy for single-row groups | >= 70% of rows in reliable groups; observed 89.7% | Warning | Profiling evidence |
-| DQ9 | Prepared / nominations | `is_matched_to_spotify` | Reasonableness | Overall match rate stays within the band observed in profiling | 4% - 15% (observed 5.5%) | Informational | R1, R2, R3 |
-| DQ10 | Prepared / nominations | `grammy_row_id` | Uniqueness | One prepared row per source nomination: the integration must not create duplicate matches | 0 duplicates | Critical | R2, R3 |
-| DQ11 | Prepared / tracks | `track_id` + `track_genre` | Uniqueness | Pair unique after deduplication (post-transformation invariant of DQ5) | 0 duplicates | Critical | R1, R3 |
-| DQ12 | Prepared / nominations | `matched_track_id` | Referential integrity | A non-null match must exist in the prepared tracks (it becomes a foreign key in the DW) | 0 orphan keys | Critical | R2, R3 |
-| DQ13 | Prepared / both tables | required columns | Validity (schema) | All columns required by the dimensional load are present | 0 missing columns | Critical | R1, R2, R3 |
-| DQ14 | Prepared / tracks | `duration_ms`, `track_name`, `artists` | Validity | After quarantine, no impossible duration and no null match key remains | 0 violations | Critical | R1, R2, R3 |
+## Quality rules
+
+| Rule ID | Dataset / Layer | Attribute(s) | Quality Dimension | Quality Rule | Metric / Threshold | Threshold Justification | Severity | Related Requirement |
+|---|---|---|---|---|---|---|---|---|
+| DQ1 | Spotify / raw | `duration_ms` | Validity | Duration must be greater than 0 | Violation rate <= 0.1% | Absorbs isolated glitch (1 row found); blocks systemic issues. | Critical | R1, R2, R3 |
+| DQ2 | Spotify / raw | `popularity` | Validity | Must be within [0, 100] | 0 violations | Hard definitional bound; any violation implies source schema change. | Critical | R2 |
+| DQ3 | Spotify / raw | `track_name`, `artists` | Completeness | Match keys must not be null | Null rate <= 0.1% | Tolerates the 1 known bad row for quarantine; blocks systemic export drops. | Critical | R1, R2, R3 |
+| DQ4 | Spotify / raw | 7 audio features | Validity | Must be within [0, 1] | 0 violations | Hard definitional bound for Spotify API metrics. | Critical | R1 |
+| DQ5 | Spotify / raw | `track_id` + `track_genre` | Uniqueness | The pair must be unique. | 0 duplicate pairs | Source duplication expected; flags for visibility before T3 dedup. | Warning | R1, R3 |
+| DQ6 | Prepared / nominations | `category_normalized` | Consistency | One canonical label per category | 0 violations | Protects `DimCategory` key integrity; unnormalized labels break the load. | Critical | R3 |
+| DQ7 | Grammy / raw | `year` | Validity | Award year within [1958, 2026] | 0 violations | Hard temporal bounds for the available data scope. | Critical | R1, R2, R3 |
+| DQ8 | Grammy / raw | `winner` | Consistency | Single winner per category/year | >= 70% valid groups | 89.7% observed; degradation below 70% makes the metric untrustworthy. | Warning | Profiling |
+| DQ9 | Prepared / nominations | `is_matched_to_spotify`| Reasonableness | Match rate within expected band | 4% - 15% | 5.5% observed. Below 4% means normalized tier failed; above 15% means over-matching. | Info | R1, R2, R3 |
+| DQ10| Prepared / nominations | `grammy_row_id` | Uniqueness | One prepared row per source nomination | 0 duplicates | Protects DW against join fan-out (prevents 4,810 rows inflating to 5,000). | Critical | R2, R3 |
+| DQ11| Prepared / tracks | `track_id` + `track_genre`| Uniqueness | Pair unique after deduplication | 0 duplicates | Post-transformation invariant of DQ5. | Critical | R1, R3 |
+| DQ12| Prepared / nominations | `matched_track_id` | Referential Integrity| Match exists in prepared tracks | 0 orphan keys | Ensures foreign key relationship between Fact tables and `dim_track`. | Critical | R2, R3 |
+| DQ13| Prepared / both tables | required columns | Validity (schema) | Required DW columns present | 0 missing columns | Structural requirement for atomic load logic. | Critical | R1, R2, R3 |
+| DQ14| Prepared / tracks | `duration`, `track_name` | Validity | No invalid duration or null keys | 0 violations | Post-quarantine invariant ensuring T2 worked correctly. | Critical | R1, R2, R3 |
 
 ## Threshold rationale
 

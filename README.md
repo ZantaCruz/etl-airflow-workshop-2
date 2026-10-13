@@ -49,7 +49,7 @@ The objective is not only the analysis but the **system** that produces it: a ba
 
 | ID | Analytical requirement | Required data | Source(s) | Expected KPI(s) | Level of detail |
 |---|---|---|---|---|---|
-| **R1** | Does the audio profile of Grammy-nominated songs differ from the rest of the Spotify catalog, by genre? | `danceability`, `energy`, `valence`, `acousticness`, `tempo`, `track_genre` (Spotify); `nominee`, `artist`, `year` (Grammy) | Both | **KPI-1**: average of each audio feature, nominated vs. not nominated | Genre; track-genre row |
+| **R1** | Does the overall audio profile of Grammy-nominated songs differ from the rest of the Spotify catalog? | `danceability`, `energy`, `valence`, `acousticness`, `tempo` (Spotify); `nominee`, `artist` (Grammy) | Both | **KPI-1**: average of each audio feature, nominated vs. rest of catalog | Overall averages (track-level grain) |
 | **R2** | Is a song's Spotify popularity related to being nominated? | `popularity`, `track_id` (Spotify); `nominee`, `artist`, `year`, `category` (Grammy) | Both | **KPI-2**: average and median popularity; share of tracks with popularity >= 50 | One value per track |
 | **R3** | Which genres appear most among nominated songs, and how does that change over time? | `track_genre` (Spotify); `nominee`, `artist`, `year` (Grammy) | Both | **KPI-3**: nominations per genre and decade | Decade x genre |
 
