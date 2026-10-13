@@ -338,7 +338,7 @@ Condition: `inject_spotify_fault = spotify_duration_ms_zero` sets 5% of `duratio
 *Figure 13.2: Task instances confirm no retry for the deterministic failure and that `transform_and_integrate`, `validate_prepared` and `load_dw` never started (try 0).*
 
 **Failed task log and GX validation result** (run `manual__2026-10-13T15:19:14`, same injected condition):
-- Task log: [`docs/evidence/user_runs/testB_failed_task.log`](docs/evidence/user_runs/testB_failed_task.log). It shows `DQ5` as a Warning (pipeline continues) followed by `BLOCKED by Critical rule(s) ['DQ1']`.
+- Task log: ![Test B failed task log](docs/evidence/user_runs/testB_failed_task_log.png) It shows `DQ5` as a Warning (pipeline continues) followed by `BLOCKED by Critical rule(s) ['DQ1']`.
 - GX result: [`docs/evidence/validation_results/manual__2026-10-13T15_19_14.286019_00_00__spotify_raw_suite.json`](docs/evidence/validation_results/manual__2026-10-13T15_19_14.286019_00_00__spotify_raw_suite.json). `DQ1`: 5,701 of 114,000 rows invalid (5.00%) against a 0.1% threshold; `critical_passed: false`.
 
 **Explanation.** `extract_spotify` succeeds because extraction does not hide source-quality problems. `validate_spotify_raw` evaluates DQ1, measures 5.00% and fails with `AirflowFailException`. `transform_and_integrate`, `validate_prepared` and `load_dw` do not run, so the Data Warehouse is untouched and no audit row is written. The same run also shows the Warning policy: DQ5 failed (0.78%), was logged and did not block the gate.
@@ -351,7 +351,7 @@ Condition: `inject_prepared_fault = join_fanout` simulates a join that duplicate
 *Figure 13.3: Run `manual__2026-10-13T15:44:57`: extraction, both raw gates and `transform_and_integrate` succeeded; `validate_prepared` failed and `load_dw` is `upstream_failed`.*
 
 **Failed task log and GX validation result** (same run):
-- Task log: [`docs/evidence/user_runs/testB2_failed_task.log`](docs/evidence/user_runs/testB2_failed_task.log). It shows `BLOCKED by Critical rule(s) ['DQ10']. Downstream tasks will not run.`
+- Task log: ![Test B2 failed task log](docs/evidence/user_runs/testB2_failed_task_log.png) It shows `BLOCKED by Critical rule(s) ['DQ10']. Downstream tasks will not run.`
 - GX result: [`docs/evidence/validation_results/manual__2026-10-13T15_44_57.737639_00_00__prepared_suite.json`](docs/evidence/validation_results/manual__2026-10-13T15_44_57.737639_00_00__prepared_suite.json). `DQ10`: 380 of 5,000 rows duplicated (7.6%) against a zero threshold; every other prepared rule passed.
 
 **Explanation.** The prepared gate detects more than one row per source nomination. `load_dw` is gated by this Critical outcome and never executes, so the warehouse keeps its previous state (the audit table shows no load for this batch).
@@ -548,10 +548,10 @@ Secrets are never committed: `.env` is ignored by Git and `.env.example` documen
 | E03 | Test A, `extract_grammys` | `docs/evidence/user_runs/testA_extract_grammys.log` | Grammy data is extracted from the database, not the CSV | Source contract (Section 3) |
 | E04 | Test B, Grid view | `docs/evidence/user_runs/testB_failed_run_grid_view.png` | Raw gate blocks the pipeline | DQ1, Critical |
 | E05 | Test B, task instances | `docs/evidence/user_runs/testB_failed_run_task_instances.png` | No retry on a deterministic failure; downstream never started | Failure policy |
-| E06 | Test B, `validate_spotify_raw` | `docs/evidence/user_runs/testB_failed_task.log` | Actionable log with rule id; Warning DQ5 continues, Critical DQ1 blocks | DQ1, DQ5 |
+| E06 | Test B, `validate_spotify_raw` | `docs/evidence/user_runs/testB_failed_task_log.png` | Actionable log with rule id; Warning DQ5 continues, Critical DQ1 blocks | DQ1, DQ5 |
 | E07 | Test B, GX result | `results/validation/manual__2026-10-13T15_19_14.286019_00_00__spotify_raw_suite.json` | Per-rule measurement: DQ1 = 5.00% | DQ1 |
 | E08 | Test B2, Grid view | `docs/evidence/user_runs/testB2_prepared_gate_grid_view.png` | Prepared gate blocks `load_dw` | DQ10, Critical |
-| E09 | Test B2, `validate_prepared` | `docs/evidence/user_runs/testB2_failed_task.log` | Fan-out detected before loading | DQ10 |
+| E09 | Test B2, `validate_prepared` | `docs/evidence/user_runs/testB2_failed_task_log.png` | Fan-out detected before loading | DQ10 |
 | E10 | Test B2, GX result | `results/validation/manual__2026-10-13T15_44_57.737639_00_00__prepared_suite.json` | Per-rule measurement: DQ10 = 380 duplicated rows | DQ10 |
 | E11 | Rerun, task instances | `docs/evidence/user_runs/rerun_success_run_task_instances.png` | Rerun of the same batch succeeds | Repeatability |
 | E12 | Rerun, SQL | `docs/evidence/user_runs/dw_counts_and_audit_after_two_loads.txt` | Counts unchanged after two loads; no audit row for the failed run | Atomic replace |
