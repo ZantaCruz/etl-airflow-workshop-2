@@ -13,10 +13,10 @@
       "name": "pandas_ds"
     }
   },
-  "id": "4ec45f21-e63d-4525-b398-7b8470dade6f",
+  "id": "be60c4bc-8db1-4b20-aab3-53088c3b4b7b",
   "name": "prepared_nominations_validation",
   "suite": {
-    "id": "57b63a32-f1d3-431f-9f1e-80e16fb95905",
+    "id": "201c70c8-06b3-4bb9-a444-e77106c51eae",
     "name": "prepared_nominations_suite"
   }
 }

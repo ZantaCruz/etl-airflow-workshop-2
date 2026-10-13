@@ -1,0 +1,24 @@
+Calculating Metrics:   0%|          | 0/26 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/26 [00:00<?, ?it/s]Calculating Metrics:   8%|▊         | 2/26 [00:00<00:00, 4288.65it/s]Calculating Metrics:   8%|▊         | 2/26 [00:00<00:00, 2901.63it/s]Calculating Metrics:  12%|█▏        | 3/26 [00:00<00:00, 3469.23it/s]Calculating Metrics:  12%|█▏        | 3/26 [00:00<00:00, 2878.73it/s]Calculating Metrics:  31%|███       | 8/26 [00:00<00:00, 100.11it/s] Calculating Metrics:  31%|███       | 8/26 [00:00<00:00, 99.52it/s] Calculating Metrics: 100%|██████████| 26/26 [00:00<00:00, 124.85it/s]Calculating Metrics: 100%|██████████| 26/26 [00:00<00:00, 124.85it/s]Calculating Metrics: 100%|██████████| 26/26 [00:00<00:00, 124.85it/s]Calculating Metrics: 100%|██████████| 26/26 [00:00<00:00, 124.85it/s]Calculating Metrics: 100%|██████████| 26/26 [00:00<00:00, 124.57it/s]
+[2026-10-13 10:45:37] ERROR - Calculating Metrics:   0%|          | 0/30 [00:00<?, ?it/s]Calculating Metrics:   0%|          | 0/30 [00:00<?, ?it/s]Calculating Metrics:   7%|▋         | 2/30 [00:00<00:00, 4299.65it/s]Calculating Metrics:   7%|▋         | 2/30 [00:00<00:00, 2912.71it/s]Calculating Metrics:  10%|█         | 3/30 [00:00<00:00, 3721.65it/s]Calculating Metrics:  10%|█         | 3/30 [00:00<00:00, 3165.51it/s]Calculating Metrics:  37%|███▋      | 11/30 [00:00<00:00, 1498.21it/s]Calculating Metrics:  37%|███▋      | 11/30 [00:00<00:00, 1436.14it/s]Calculating Metrics: 100%|██████████| 30/30 [00:00<00:00, 1773.44it/s]Calculating Metrics: 100%|██████████| 30/30 [00:00<00:00, 1746.68it/s]Calculating Metrics: 100%|██████████| 30/30 [00:00<00:00, 1740.38it/s]Calculating Metrics: 100%|██████████| 30/30 [00:00<00:00, 1732.30it/s]
+[2026-10-13 10:45:37] ERROR - [batch=manual__2026-10-13T15_44_57.737639_00_00] validate_prepared BLOCKED by Critical rule(s) ['DQ10']. Downstream tasks will not run. Evidence: /opt/airflow/results/validation/manual__2026-10-13T15_44_57.737639_00_00__prepared_suite.json
+[2026-10-13 10:45:37] ERROR - Task failed with exception
+AirflowFailException: [batch=manual__2026-10-13T15_44_57.737639_00_00] validate_prepared BLOCKED by Critical rule(s) ['DQ10']. Downstream tasks will not run. Evidence: /opt/airflow/results/validation/manual__2026-10-13T15_44_57.737639_00_00__prepared_suite.json
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sdk/execution_time/task_runner.py", line 1112 in run
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sdk/execution_time/task_runner.py", line 1528 in _execute_task
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sdk/bases/operator.py", line 417 in wrapper
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sdk/bases/decorator.py", line 252 in execute
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sdk/bases/operator.py", line 417 in wrapper
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/standard/operators/python.py", line 228 in execute
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/providers/standard/operators/python.py", line 251 in execute_callable
+
+File "/home/airflow/.local/lib/python3.12/site-packages/airflow/sdk/execution_time/callback_runner.py", line 82 in run
+
+File "/opt/airflow/dags/reliable_music_pipeline.py", line 246 in validate_prepared_task
+
+File "/opt/airflow/dags/reliable_music_pipeline.py", line 110 in _apply_gate_policy

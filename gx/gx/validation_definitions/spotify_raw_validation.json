@@ -13,10 +13,10 @@
       "name": "pandas_ds"
     }
   },
-  "id": "ce7a0f47-cb4c-4f19-8247-5fdd6bdbe1f0",
+  "id": "5c2bcfa7-7653-4395-8a53-f36414d30c3a",
   "name": "spotify_raw_validation",
   "suite": {
-    "id": "00b49924-5794-416f-8613-6669f11cc0ba",
+    "id": "7cbd9ecb-718a-44b2-97b4-a41b49cffd51",
     "name": "spotify_raw_suite"
   }
 }
