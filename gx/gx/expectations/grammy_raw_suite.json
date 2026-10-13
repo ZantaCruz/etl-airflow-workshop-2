@@ -1,7 +1,7 @@
 {
   "expectations": [
     {
-      "id": "481306e2-062e-4a5d-8532-745ece31b56d",
+      "id": "3ef36f23-a620-4aa8-9ef1-abf602a014f0",
       "kwargs": {
         "column": "year",
         "max_value": 2026.0,
@@ -15,7 +15,7 @@
       "type": "expect_column_values_to_be_between"
     },
     {
-      "id": "2106f6f2-552a-43a9-8812-a22a42736455",
+      "id": "032f9dd3-e7fd-4b6b-b4dc-0e3b5201f2a4",
       "kwargs": {
         "column": "winner_flag_reliable",
         "mostly": 0.7,
@@ -31,7 +31,7 @@
       "type": "expect_column_values_to_be_in_set"
     }
   ],
-  "id": "68b76c68-2275-464f-ba5a-22892b969ff6",
+  "id": "7b714a82-098a-48e3-afa4-11ba61f57107",
   "meta": {
     "great_expectations_version": "1.23.1"
   },

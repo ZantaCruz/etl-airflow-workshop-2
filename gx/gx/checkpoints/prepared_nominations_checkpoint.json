@@ -1,11 +1,11 @@
 {
   "actions": [],
-  "id": "655a7b6c-15da-40b0-a904-e54052de104a",
+  "id": "9481299c-31f8-4190-b72f-46a71d825d15",
   "name": "prepared_nominations_checkpoint",
   "result_format": "SUMMARY",
   "validation_definitions": [
     {
-      "id": "be60c4bc-8db1-4b20-aab3-53088c3b4b7b",
+      "id": "a20c6abb-b13f-4903-9933-c431733a7c7a",
       "name": "prepared_nominations_validation"
     }
   ]

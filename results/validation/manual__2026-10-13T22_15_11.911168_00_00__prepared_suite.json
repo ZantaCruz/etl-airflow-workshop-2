@@ -1,0 +1,174 @@
+{
+  "suite": "prepared_suite",
+  "batch_id": "manual__2026-10-13T22_15_11.911168_00_00",
+  "executed_at": "2026-10-13T22:15:48.544653Z",
+  "all_passed": true,
+  "critical_passed": true,
+  "failed_critical": [],
+  "failed_warning": [],
+  "failed_informational": [],
+  "rules": [
+    {
+      "rule_id": "DQ10",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ10",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_unique",
+          "target": "grammy_row_id",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 4810
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ11",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ11",
+          "severity": "Critical",
+          "expectation_type": "expect_compound_columns_to_be_unique",
+          "target": [
+            "track_id",
+            "track_genre"
+          ],
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 113549
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ12",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ12",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_in_set",
+          "target": "fk_valid",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 4810
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ13",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ13",
+          "severity": "Critical",
+          "expectation_type": "expect_table_columns_to_match_set",
+          "target": null,
+          "success": true,
+          "unexpected_count": null,
+          "unexpected_percent": null,
+          "element_count": null
+        },
+        {
+          "rule_id": "DQ13",
+          "severity": "Critical",
+          "expectation_type": "expect_table_columns_to_match_set",
+          "target": null,
+          "success": true,
+          "unexpected_count": null,
+          "unexpected_percent": null,
+          "element_count": null
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ14",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ14",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "duration_ms",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 113549
+        },
+        {
+          "rule_id": "DQ14",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "target": "track_name",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 113549
+        },
+        {
+          "rule_id": "DQ14",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "target": "artists",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 113549
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ6",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ6",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "target": "category_normalized",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 4810
+        },
+        {
+          "rule_id": "DQ6",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_in_set",
+          "target": "category_label_consistent",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 4810
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ9",
+      "severity": "Informational",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ9",
+          "severity": "Informational",
+          "expectation_type": "expect_column_mean_to_be_between",
+          "target": "is_matched_to_spotify_int",
+          "success": true,
+          "unexpected_count": null,
+          "unexpected_percent": null,
+          "element_count": null
+        }
+      ]
+    }
+  ]
+}

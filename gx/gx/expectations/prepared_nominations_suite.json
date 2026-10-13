@@ -1,7 +1,7 @@
 {
   "expectations": [
     {
-      "id": "f69391bd-eca4-4032-b014-9d17d52e4f0e",
+      "id": "8763fc93-0295-41d5-91b7-4f7170e302ea",
       "kwargs": {
         "column": "category_normalized"
       },
@@ -13,7 +13,7 @@
       "type": "expect_column_values_to_not_be_null"
     },
     {
-      "id": "31bb10cf-8094-4317-b0f7-f2fb4ff0ae3b",
+      "id": "1962a038-2c42-4113-9f92-e4aa7a9c24f3",
       "kwargs": {
         "column": "category_label_consistent",
         "value_set": [
@@ -28,7 +28,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "26201f7f-810f-408d-b06b-18f45d503aa8",
+      "id": "8ebba0d9-4e1d-4b2f-8b6c-c57d8bb6faf3",
       "kwargs": {
         "column": "grammy_row_id"
       },
@@ -40,7 +40,7 @@
       "type": "expect_column_values_to_be_unique"
     },
     {
-      "id": "93aa3dab-6e0b-48e1-9cca-dc4c85833b71",
+      "id": "c652a7b0-babb-4620-809f-c36a37f70df2",
       "kwargs": {
         "column": "fk_valid",
         "value_set": [
@@ -55,7 +55,7 @@
       "type": "expect_column_values_to_be_in_set"
     },
     {
-      "id": "90439b55-ef50-4400-bc79-a7aee309f991",
+      "id": "ab513db6-146a-48be-bf55-46bf90ce8782",
       "kwargs": {
         "column_set": [
           "grammy_row_id",
@@ -84,7 +84,7 @@
       "type": "expect_table_columns_to_match_set"
     },
     {
-      "id": "bebf05ca-475e-4a38-864d-3591fe4b746a",
+      "id": "edb13370-ca34-4ce3-9dea-8899f0340ffc",
       "kwargs": {
         "column": "is_matched_to_spotify_int",
         "max_value": 0.15,
@@ -98,7 +98,7 @@
       "type": "expect_column_mean_to_be_between"
     }
   ],
-  "id": "201c70c8-06b3-4bb9-a444-e77106c51eae",
+  "id": "f3c56be8-60e0-4b12-9ca4-302545cbf104",
   "meta": {
     "great_expectations_version": "1.23.1"
   },

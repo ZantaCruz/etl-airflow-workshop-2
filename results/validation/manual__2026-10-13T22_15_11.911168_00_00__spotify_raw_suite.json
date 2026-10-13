@@ -1,0 +1,172 @@
+{
+  "suite": "spotify_raw_suite",
+  "batch_id": "manual__2026-10-13T22_15_11.911168_00_00",
+  "executed_at": "2026-10-13T22:15:27.753825Z",
+  "all_passed": false,
+  "critical_passed": true,
+  "failed_critical": [],
+  "failed_warning": [
+    "DQ5"
+  ],
+  "failed_informational": [],
+  "rules": [
+    {
+      "rule_id": "DQ1",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ1",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "duration_ms",
+          "success": true,
+          "unexpected_count": 1,
+          "unexpected_percent": 0.0008771929824561403,
+          "element_count": 114000
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ2",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ2",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "popularity",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ3",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ3",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "target": "track_name",
+          "success": true,
+          "unexpected_count": 1,
+          "unexpected_percent": 0.0008771929824561403,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ3",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_not_be_null",
+          "target": "artists",
+          "success": true,
+          "unexpected_count": 1,
+          "unexpected_percent": 0.0008771929824561403,
+          "element_count": 114000
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ4",
+      "severity": "Critical",
+      "success": true,
+      "details": [
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "danceability",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "energy",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "valence",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "acousticness",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "instrumentalness",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "liveness",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        },
+        {
+          "rule_id": "DQ4",
+          "severity": "Critical",
+          "expectation_type": "expect_column_values_to_be_between",
+          "target": "speechiness",
+          "success": true,
+          "unexpected_count": 0,
+          "unexpected_percent": 0.0,
+          "element_count": 114000
+        }
+      ]
+    },
+    {
+      "rule_id": "DQ5",
+      "severity": "Warning",
+      "success": false,
+      "details": [
+        {
+          "rule_id": "DQ5",
+          "severity": "Warning",
+          "expectation_type": "expect_compound_columns_to_be_unique",
+          "target": [
+            "track_id",
+            "track_genre"
+          ],
+          "success": false,
+          "unexpected_count": 894,
+          "unexpected_percent": 0.7842105263157895,
+          "element_count": 114000
+        }
+      ]
+    }
+  ]
+}

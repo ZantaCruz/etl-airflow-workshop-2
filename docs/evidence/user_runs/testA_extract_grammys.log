@@ -1,0 +1,10 @@
+::group::Log message source detailssources=["/opt/airflow/logs/dag_id=reliable_music_pipeline/run_id=manual__2026-10-12T18:07:19.887313+00:00/task_id=extract_grammys/attempt=1.log"] 
+::endgroup::
+[2026-10-12T18:07:20.289254Z] INFO - Stats instance was created in PID 7 but accessed in PID 383. Re-initializing.
+[2026-10-12T18:07:20.307063Z] INFO - DAG bundles loaded: dags-folder
+[2026-10-12T18:07:20.310635Z] INFO - Filling up the DagBag from /opt/airflow/dags/reliable_music_pipeline.py
+[2026-10-12T18:07:21.168085Z] INFO - [batch=manual__2026-10-12T18_07_19.887313_00_00] Extracting Grammy from relational source database (grammy_source), query: SELECT * FROM grammy_awards_raw ORDER BY row_id
+[2026-10-12T18:07:21.365406Z] INFO - [batch=manual__2026-10-12T18_07_19.887313_00_00] Grammy extracted: 4810 rows -> /opt/airflow/data/staging/manual__2026-10-12T18_07_19.887313_00_00/grammy_raw.parquet
+[2026-10-12T18:07:21.367240Z] INFO - [batch=manual__2026-10-12T18_07_19.887313_00_00] extract_grammys OK: 4810 rows from grammy_source.grammy_awards_raw (PostgreSQL)
+[2026-10-12T18:07:21.367555Z] INFO - Done. Returned value was: {'batch_id': 'manual__2026-10-12T18_07_19.887313_00_00', 'source': 'grammy_source.grammy_awards_raw (PostgreSQL)', 'path': '/opt/airflow/data/staging/manual__2026-10-12T18_07_19.887313_00_00/grammy_raw.parquet', 'row_count': 4810}
+[2026-10-12T18:07:21.368359Z] INFO - Pushing xcomti=RuntimeTaskInstance(id=UUID('01a1314c-336c-77db-9a6d-33675c7b0e84'), task_id='extract_grammys', dag_id='reliable_music_pipeline', run_id='manual__2026-10-12T18:07:19.887313+00:00', try_number=1, dag_version_id=UUID('01a13143-83ca-7e5e-b831-3e0c70b4e57d'), map_index=-1, hostname='4e3595e5061d', context_carrier={}, task=<Task(_PythonDecoratedOperator): extract_grammys>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=3, start_date=datetime.datetime(2026, 10, 12, 18, 7, 20, 228083, tzinfo=datetime.timezone.utc), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None) 
